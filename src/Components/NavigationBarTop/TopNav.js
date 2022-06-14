@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, Badge } from 'react-bootstrap';
 
 function TopNav() {
 	return (
@@ -12,6 +12,13 @@ function TopNav() {
 						<Nav className='me-auto'></Nav>
 						<Nav>
 							<Nav.Link href='/user'>Users</Nav.Link>
+						</Nav>
+						<Nav>
+							<a href='/'>
+								<Badge pill bg='primary'>
+									Logout
+								</Badge>
+							</a>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
