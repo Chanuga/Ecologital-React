@@ -23,8 +23,9 @@ function Login() {
 						password: registerPassWord,
 					}
 				);
-				console.log(response.data.user);
-				localStorage.setItem('userTpe', response.data.user);
+				console.log(response.data.id);
+				localStorage.setItem('userType', response.data.user);
+				localStorage.setItem('userID', response.data.id);
 
 				navigate('/dashboard');
 			} catch (error) {

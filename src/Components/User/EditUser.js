@@ -14,10 +14,7 @@ function EditUser() {
 	const [registerEmail, setRegisterEmail] = useState('');
 	const [registerPassWord, setRegisterPassWord] = useState('');
 
-	console.log('data', data);
-
 	useEffect(() => {
-		debugger;
 		if (id) {
 			const response = axios
 				.get(`http://localhost:5000/api/v1/auth/users/${id}`)
@@ -45,10 +42,10 @@ function EditUser() {
 		try {
 			const response = axios
 				.put(`http://localhost:5000/api/v1/auth/users/${id}`, {
-					name: registerName,
-					email: registerEmail,
-					role: userType,
-					password: registerPassWord,
+					name: registerName || data.name,
+					email: registerEmail || data.email,
+					role: userType || data.role,
+					password: registerPassWord || data.password,
 				})
 				.then(function (response) {
 					// handle success

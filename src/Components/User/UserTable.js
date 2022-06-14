@@ -3,7 +3,6 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function UserTable({ allUsers, select }) {
-	console.log('allUsers', allUsers);
 	return (
 		<div>
 			<table className='table table-hover table-bordered'>
@@ -25,7 +24,12 @@ function UserTable({ allUsers, select }) {
 								<td>{data.email}</td>
 								<td>{data.role}</td>
 								<td>
-									<Button variant='danger' onClick={() => {select(data._id)}}>
+									<Button
+										variant='danger'
+										onClick={() => {
+											select(data._id);
+										}}
+									>
 										Delete
 									</Button>
 								</td>

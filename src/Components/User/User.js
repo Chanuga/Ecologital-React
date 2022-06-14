@@ -8,9 +8,10 @@ function User() {
 	const [data, setData] = useState(null);
 
 	useEffect(() => {
-		if (localStorage.getItem('userTpe') == 'admin') {
+		if (localStorage.getItem('userType') == 'admin') {
 			fetchData();
 		} else {
+			fetchUser(localStorage.getItem('userID'));
 		}
 	}, []);
 
@@ -21,6 +22,24 @@ function User() {
 				// handle success
 				console.log(response.data.data);
 				setData(response.data.data);
+			})
+			.catch(function (error) {
+				// handle error
+				console.log(error);
+			})
+			.then(function () {
+				// always executed
+			});
+	};
+
+	const fetchUser = id => {
+		debugger;
+		const response = axios
+			.get(`http://localhost:5000/api/v1/auth/users/${id}`)
+			.then(function (response) {
+				// handle success
+				console.log(response.data.data);
+				setData([response.data.data]);
 			})
 			.catch(function (error) {
 				// handle error
