@@ -150,6 +150,12 @@ function Signin() {
 				<Button variant='primary' onClick={register}>
 					Signin
 				</Button>
+				<p className='mt-4 text-center text-secondary font-weight-normal'>
+					Already have an account ?{' '}
+					<a href='/'>
+						<strong>Login</strong>
+					</a>
+				</p>
 			</Form>
 		</div>
 	);
